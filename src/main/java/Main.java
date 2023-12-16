@@ -14,10 +14,10 @@ public class Main {
         String[] texts = new String[100_000];
         for (int i = 0; i < texts.length; i++) {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
-
+        }
         new Thread(() -> {
             for (String word: texts) {
-                if (isPalindrome(word) == true) {
+                if (isPalindrome(word)) {
                     counter(word.length());
 
                 }
@@ -26,7 +26,7 @@ public class Main {
 
         new Thread(() -> {
             for (String word: texts) {
-                if (isOneLetter(word) == true) {
+                if (isOneLetter(word)) {
                     counter(word.length());
                 }
             }
@@ -45,7 +45,6 @@ public class Main {
         System.out.println("Красивых слов с длиной 3: " + lengthThree + " шт");
         System.out.println("Красивых слов с длиной 4: " + lengthFour + " шт");
         System.out.println("Красивых слов с длиной 5: " + lengthFive + " шт");
-        }
     }
     public static String generateText(String letters, int length) {
         Random random = new Random();
